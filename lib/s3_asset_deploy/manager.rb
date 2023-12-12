@@ -6,6 +6,7 @@ require "aws-sdk-s3"
 require "s3_asset_deploy/errors"
 require "s3_asset_deploy/removal_manifest"
 require "s3_asset_deploy/rails_local_asset_collector"
+require "s3_asset_deploy/vite_local_asset_collector"
 require "s3_asset_deploy/remote_asset_collector"
 
 class S3AssetDeploy::Manager
