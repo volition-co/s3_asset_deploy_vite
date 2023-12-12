@@ -27,7 +27,7 @@ class S3AssetDeploy::AssetHelper
   # and Vite.
   # If the asset is marked as dynamic with the vite_dynamic_flag (e.g.
   # -vtdynamic), then we don't remove the hash.
-  def remove_fingerprint_vite(path, vite_hash_prefix, vite_dynamic_flag)
+  def self.remove_fingerprint_vite(path, vite_hash_prefix, vite_dynamic_flag)
       if path.include?(vite_dynamic_flag)
           return path
       elsif path.include?(vite_hash_prefix)
