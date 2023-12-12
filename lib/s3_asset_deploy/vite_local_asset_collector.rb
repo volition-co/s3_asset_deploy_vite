@@ -1,4 +1,4 @@
-class ViteLocalAssetCollector < S3AssetDeploy::RailsLocalAssetCollector
+class S3AssetDeploy::ViteLocalAssetCollector < S3AssetDeploy::RailsLocalAssetCollector
     def assets
       super + assets_from_vite
     end
