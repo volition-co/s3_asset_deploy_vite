@@ -22,7 +22,7 @@ class S3AssetDeploy::ViteLocalAssetCollector < S3AssetDeploy::RailsLocalAssetCol
 
                 # Get source maps
                 if asset["file"].end_with?(".js")
-                    map_file = asset["file"].gsub(/\.js$/, ".map")
+                    map_file = asset["file"] + ".map"
                     vite_paths << map_file if File.exist?(public_path.join("assets", map_file))
                 end
             end
