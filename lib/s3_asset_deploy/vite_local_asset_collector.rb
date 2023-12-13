@@ -15,8 +15,8 @@ class S3AssetDeploy::ViteLocalAssetCollector < S3AssetDeploy::RailsLocalAssetCol
 
                 # Get CSS chunks
                 if asset["css"] && asset["css"].is_a?(Array)
-                    asset["css"].each do |css|
-                        vite_paths << css["file"]
+                    asset["css"].each do |css_file|
+                        vite_paths << css_file
                     end
                 end
 
