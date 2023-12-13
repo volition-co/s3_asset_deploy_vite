@@ -12,6 +12,19 @@ class S3AssetDeploy::ViteLocalAssetCollector < S3AssetDeploy::RailsLocalAssetCol
             manifest = JSON.parse(File.open(manifest_file).read)
             manifest.each do |_, asset|
                 vite_paths << asset["file"]
+
+                # Get CSS chunks
+                if asset["css"] && asset["css"].is_a?(Array)
+                    asset["css"].each do |css|
+                        vite_paths << css["file"]
+                    end
+                end
+
+                # Get source maps
+                if asset["file"].end_with?(".js")
+                    map_file = asset["file"].gsub(/\.js$/, ".map")
+                    vite_paths << map_file if File.exist?(public_path.join("assets", map_file))
+                end
             end
         end
 
